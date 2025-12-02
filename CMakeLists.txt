@@ -34,7 +34,7 @@ elseif(${ROS_VERSION} EQUAL 2)
     message(STATUS "Configuring for ROS2")
     find_package(ament_cmake REQUIRED)
 
-    install(DIRECTORY meshes robots urdf gazebo
+    install(DIRECTORY meshes robots urdf gazebo worlds
             DESTINATION share/${PROJECT_NAME})
             
     ament_package()
