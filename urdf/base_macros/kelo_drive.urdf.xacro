@@ -98,6 +98,34 @@ License LGPL and BSD license along with this program.
             
         </link>
 
+        <link name="${name}_drive_top_part_link">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="file://$(find robile_description)/meshes/kelo_drive/kelo_drive_top_part.dae" scale="1 1 1"/>
+                </geometry>
+                <material name="black">
+                    <color rgba="0.0 0.0 0.0 1.0"/>
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="file://$(find robile_description)/meshes/kelo_drive/kelo_drive_top_part.dae" scale="1 1 1"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <origin xyz="0.00054 -0.00146 0.01031" rpy="0 0 0"/>
+                <mass value="0.43207"/>
+                <inertia ixx="0.00036965278" ixy="0.00001352474" ixz="-0.00000005992" iyy="0.00039670119" iyz="0.00000019355" izz="0.00073957435"/>
+            </inertial>
+        </link>
+        <joint name="${name}_drive_top_part_joint" type="fixed">
+            <origin xyz="0 0 0.09" rpy="0 0 0"/>
+            <parent link="${parent}"/>
+            <child link="${name}_drive_top_part_link"/>
+        </joint>
+
         <!-- LEFT HUB WHEEL -->
         <xacro:kelo_drive_wheel name="${name}_left_hub_wheel" parent="${name}_pivot_link" movable_joints="${movable_joints}">
             <origin xyz="-0.01 0.039326 0.001514" rpy="0 0 0.0"/>
