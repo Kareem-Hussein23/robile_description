@@ -139,7 +139,12 @@ License LGPL and BSD license along with this program.
                 </geometry>
             </collision>
 
-            <xacro:cylinder_inertia mass="0.5" radius="0.05" length="0.03" center_of_mass_roll="1.570796327"/>
+            <inertial>
+                <origin xyz="0.00479 0.00005 0.01076" rpy="0 0 0"/>
+                <mass value="0.78407"/>
+                <inertia ixx="0.00100070978" ixy="-0.00000018014" ixz="0.00021252946" iyy="0.00138456009" iyz="-0.00000040458" izz="0.00063714999"/>
+            </inertial>
+            
         </link>
 
     </xacro:macro>
