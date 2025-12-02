@@ -40,7 +40,7 @@ License LGPL and BSD license along with this program.
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:macro name="kelo_drive_wheel" params="name parent *origin movable_joints:=true">
+    <xacro:macro name="kelo_drive_wheel" params="name parent *origin movable_joints:=true use_real_inertia:=false">
 
         <xacro:include filename="$(find robile_description)/urdf/base_macros/common.xacro" />
 
@@ -87,11 +87,16 @@ License LGPL and BSD license along with this program.
                 </geometry>
             </collision>
 
-            <inertial>
-                <origin xyz="0 0 0" rpy="0 0 0"/>
-                <mass value="1.56317"/>
-                <inertia ixx="0.00101253363" ixy="0.00000000000" ixz="0.00000001020" iyy="0.00157998524" iyz="-0.00000055474" izz="0.00101282739"/>
-            </inertial>
+            <xacro:if value="${use_real_inertia}">
+                <inertial>
+                    <origin xyz="0 0 0" rpy="0 0 0"/>
+                    <mass value="1.56317"/>
+                    <inertia ixx="0.00101253363" ixy="0.00000000000" ixz="0.00000001020" iyy="0.00157998524" iyz="-0.00000055474" izz="0.00101282739"/>
+                </inertial>
+            </xacro:if>
+            <xacro:unless value="${use_real_inertia}">
+                <xacro:cuboid_inertia mass="10.0" length="0.233" breadth="0.233" height="0.233"/>
+            </xacro:unless>
         
         </link>
     </xacro:macro>

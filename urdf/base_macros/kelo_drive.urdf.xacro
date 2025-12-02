@@ -40,7 +40,7 @@ License LGPL and BSD license along with this program.
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:macro name="kelo_drive" params="name parent *origin movable_joints:=true">
+    <xacro:macro name="kelo_drive" params="name parent *origin movable_joints:=true use_real_inertia:=false">
 
         <xacro:include filename="$(find robile_description)/urdf/base_macros/common.xacro" />
         <xacro:include filename="$(find robile_description)/urdf/base_macros/kelo_drive_wheel.urdf.xacro" />
@@ -127,12 +127,12 @@ License LGPL and BSD license along with this program.
         </joint>
 
         <!-- LEFT HUB WHEEL -->
-        <xacro:kelo_drive_wheel name="${name}_left_hub_wheel" parent="${name}_pivot_link" movable_joints="${movable_joints}">
+        <xacro:kelo_drive_wheel name="${name}_left_hub_wheel" parent="${name}_pivot_link" movable_joints="${movable_joints}" use_real_inertia="${use_real_inertia}">
             <origin xyz="-0.01 0.039326 0.001514" rpy="0 0 0.0"/>
         </xacro:kelo_drive_wheel>
 
         <!-- RIGHT HUB WHEEL -->
-        <xacro:kelo_drive_wheel name="${name}_right_hub_wheel" parent="${name}_pivot_link" movable_joints="${movable_joints}">
+        <xacro:kelo_drive_wheel name="${name}_right_hub_wheel" parent="${name}_pivot_link" movable_joints="${movable_joints}" use_real_inertia="${use_real_inertia}">
             <origin xyz="-0.01 -0.039326 0.001514" rpy="0 0 0.0"/>
         </xacro:kelo_drive_wheel>
 
