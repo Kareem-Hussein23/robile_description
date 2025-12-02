@@ -47,6 +47,7 @@ License LGPL and BSD license along with this program.
     <xacro:include filename="$(find robile_description)/urdf/robile_bricks/robile_passive_wheel_brick.urdf.xacro" />
     <xacro:include filename="$(find robile_description)/urdf/robile_bricks/robile_cpu_brick.urdf.xacro" />
     <xacro:include filename="$(find robile_description)/urdf/robile_bricks/robile_master_battery_brick.urdf.xacro" />
+    <xacro:include filename="$(find robile_description)/gazebo/2_wheel_ros2_control_config.xacro"/>
 
     <link name="base_link"/>
 
