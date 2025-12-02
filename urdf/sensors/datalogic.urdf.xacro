@@ -36,9 +36,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                                           topic:=base_scan parent:=base_link
                                           sample_size:=540 update_rate:=10
                                           min_angle:=-2.35619 max_angle:=2.35619
-                                          min_range:=0.1 max_range:=30.0
-                                          robot_namespace:=/ use_gpu:=true
-                                          visualize:=false" >
+                                          min_range:=0.1 max_range:=30.0 visualize:=true">
 
         <joint name="${name}_joint" type="fixed">
             <axis xyz="0 1 0" />
@@ -71,20 +69,9 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         </link>
 
 
-        <xacro:if value="${use_gpu}">
-            <xacro:gazebo_laser_plugin name="${name}" topic="${topic}" sample_size="${sample_size}"
-                                       update_rate="${update_rate}" min_angle="${min_angle}"
-                                       max_angle="${max_angle}" min_range="${min_range}" max_range="${max_range}"
-                                       robot_namespace="${robot_namespace}" visualize="${visualize}" 
-                                       sensor_type="gpu_ray" plugin_filename="libgazebo_ros_gpu_laser"/>
-        </xacro:if>
-        <xacro:unless value="${use_gpu}">
-            <xacro:gazebo_laser_plugin name="${name}" topic="${topic}" sample_size="${sample_size}"
-                                       update_rate="${update_rate}" min_angle="${min_angle}"
-                                       max_angle="${max_angle}" min_range="${min_range}" max_range="${max_range}"
-                                       robot_namespace="${robot_namespace}" visualize="${visualize}" 
-                                       sensor_type="ray" plugin_filename="libgazebo_ros_laser"/>
-        </xacro:unless>
-
+        <xacro:gazebo_laser_plugin name="${name}" topic="${topic}" sample_size="${sample_size}" update_rate="${update_rate}"
+                                min_angle="${min_angle}" max_angle="${max_angle}" min_range="${min_range}" max_range="${max_range}"
+                                visualize="${visualize}" sensor_type="gpu_lidar"/>
+                                
     </xacro:macro>
 </robot>
