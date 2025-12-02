@@ -90,8 +90,12 @@ License LGPL and BSD license along with this program.
                 </geometry>
             </collision>
 
-            <!--TODO: Set the correct inertia-->
-            <xacro:cuboid_inertia mass="10.0" length="0.233" breadth="0.233" height="0.233"/>
+            <inertial>
+                <origin xyz="0.00023 -0.00095 0.04843" rpy="0 0 0"/>
+                <mass value="1.46273"/>
+                <inertia ixx="0.00302046423" ixy="0.00000851844" ixz="0.00001188180" iyy="0.00326495472" iyz="0.00001855408" izz="0.00386072964"/>
+            </inertial>
+            
         </link>
 
         <!-- LEFT HUB WHEEL -->
