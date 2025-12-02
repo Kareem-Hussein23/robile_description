@@ -50,6 +50,7 @@ License LGPL and BSD license along with this program.
             <axis xyz="0 0 1"/>
             <parent link="${parent}"/>
             <child link="${name}_pivot_link" />
+            <limit effort="10.0" velocity="10.0"/>
         </joint>
 
         <transmission name="${name}_pivot_transmission">
