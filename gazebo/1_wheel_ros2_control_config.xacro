@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find robile_description)/gazebo/gazebo_ros2_control.xacro" />
+
+    <xacro:ros2_control config_file_name="1_wheel_config" />
+
+    <ros2_control name="GazeboSystem" type="system">
+        <hardware>
+            <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+        </hardware>
+
+        <xacro:active_wheel_interfaces name="robile_5"/>
+    </ros2_control>
+
+</robot>

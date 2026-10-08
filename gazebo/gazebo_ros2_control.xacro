@@ -6,7 +6,7 @@
                 <parameters>$(find robile_gazebo)/config/ros_controller/${config_file_name}.yaml</parameters>
                 <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
             </plugin>
-            <plugin filename="libignition-gazebo6-odometry-publisher-system" name="ignition::gazebo::systems::OdometryPublisher">
+            <plugin filename="libgz-sim-odometry-publisher-system" name="gz::sim::systems::OdometryPublisher">
                 <dimensions>3</dimensions>
                 <odom_publish_frequency>2000</odom_publish_frequency>
                 <odom_frame>odom</odom_frame>
